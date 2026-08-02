@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Copiloto Dependencia — Calcula cuánto lleva esperando tu solicitud</title>
+<meta name="description" content="El plazo legal para resolver una solicitud de dependencia es de 6 meses. Calcula gratis cuánto lleva esperando tu familiar y qué puedes hacer. Sin registro y sin guardar datos.">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="contenedor cabecera-interior">
+    <span class="marca">Copiloto Dependencia</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- ───────────── Sección 1 — Cabecera y titular ───────────── -->
+  <section class="hero">
+    <div class="contenedor contenedor-estrecho">
+      <h1>Tu solicitud de dependencia lleva más tiempo del legal. Y probablemente nadie te lo ha dicho.</h1>
+      <p class="subtitulo">
+        El plazo máximo para resolver es de 6 meses. La media real en España es de
+        <strong><span data-cifra="plazo_medio_dias"></span> días</strong>.
+        Calcula gratis cuánto lleva esperando tu familiar y qué puedes hacer al respecto.
+      </p>
+      <p class="fuente-dato">Fuente: <span data-cifra="plazo_medio_fuente"></span></p>
+
+      <p><a class="boton" href="#contador">Calcular mi plazo (gratis, 1 minuto)</a></p>
+
+      <p class="linea-confianza">
+        Sin registro. Sin certificado digital. No guardamos ningún dato médico.
+      </p>
+    </div>
+  </section>
+
+  <!-- ───────────── Sección 2 — Los tres problemas ───────────── -->
+  <section class="seccion">
+    <div class="contenedor contenedor-estrecho">
+      <h2>Si estás tramitando la dependencia de un familiar, seguramente te suena algo de esto</h2>
+
+      <div class="problemas">
+        <article class="problema">
+          <h3>«No sé si me falta algún papel»</h3>
+          <p>
+            Un porcentaje importante de solicitudes se paralizan o se archivan por
+            documentación incompleta: el informe de salud no está en el modelo oficial,
+            falta el certificado de empadronamiento histórico, o no se acreditó la
+            representación. Cuando pasa, hay que volver a empezar.
+          </p>
+        </article>
+
+        <article class="problema">
+          <h3>«No sé cómo va mi expediente»</h3>
+          <p>
+            Cada comunidad autónoma tiene su propio sistema. Muchos exigen certificado
+            digital. En varios, la única vía real es llamar por teléfono y esperar.
+          </p>
+        </article>
+
+        <article class="problema">
+          <h3>«Llevamos más de un año esperando»</h3>
+          <p>
+            Si han pasado más de 6 meses desde tu solicitud, la Administración está
+            incumpliendo el plazo legal. Eso no hace que pierdas el derecho: el
+            expediente sigue su curso, y puedes reclamar por escrito.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── Sección 3 — Contador de plazo ───────────── -->
+  <section class="seccion seccion-destacada" id="contador">
+    <div class="contenedor contenedor-estrecho">
+      <h2>¿Cuánto lleva esperando tu expediente?</h2>
+
+      <div class="herramienta">
+        <label class="etiqueta" for="fecha-solicitud">
+          Fecha en que se presentó la solicitud
+        </label>
+        <input type="date" id="fecha-solicitud" name="fecha-solicitud" class="campo-fecha">
+
+        <p class="nota-privacidad">
+          El cálculo se hace en tu propio navegador. Esta fecha no se envía a ningún
+          sitio, no se guarda y no aparece en la dirección de la página.
+        </p>
+
+        <!-- El resultado se pinta aquí desde js/contador.js -->
+        <div id="resultado-contador" class="resultado" aria-live="polite"></div>
+      </div>
+
+      <!-- Nota fija bajo el resultado. Se oculta sola cuando
+           CONFIG.REFORMA_PENDIENTE.activa pase a false. -->
+      <p class="nota-reforma" data-nota-reforma hidden>
+        El Congreso aprobó en julio de 2026 una reforma que reduce este plazo de 6 a 3
+        meses. Todavía está en tramitación en el Senado, así que de momento el plazo
+        aplicable sigue siendo de 6 meses.
+      </p>
+
+      <noscript>
+        <p class="aviso-noscript">
+          Esta calculadora necesita JavaScript activado. Es lo que permite que el
+          cálculo ocurra en tu ordenador y que no tengamos que enviar tus datos a
+          ningún servidor.
+        </p>
+      </noscript>
+    </div>
+  </section>
+
+  <!-- ───────────── Sección 7 — Quiénes somos ───────────── -->
+  <section class="seccion">
+    <div class="contenedor contenedor-estrecho">
+      <h2>Quiénes somos</h2>
+      <p>
+        Somos Joan Guasch y Andrea Gutiérrez. Empezamos esto porque vimos de cerca lo que
+        es pelearse con este trámite.
+      </p>
+      <!-- TODO (Joan): añadir una foto de cada uno cuando haya diseño.
+           En este sector el anonimato baja mucho la conversión; el texto ya
+           no es anónimo, pero una cara real ayuda más que un nombre. -->
+      <p>
+        No somos abogados ni trabajadores sociales, y no damos asesoramiento jurídico.
+        Lo que hacemos es reunir en un sitio información que hoy está repartida entre 17
+        administraciones distintas, y explicarla en un idioma que se entienda.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ───────────── Sección 8 — Legal ───────────── -->
+<footer class="pie">
+  <div class="contenedor contenedor-estrecho">
+    <p class="descargo">
+      Copiloto Dependencia es un servicio de información. No sustituye el asesoramiento
+      de los servicios sociales de tu ayuntamiento, que es gratuito y es siempre tu
+      primera opción.
+    </p>
+    <p class="enlaces-legales">
+      <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Política de privacidad</a>
+    </p>
+    <p class="copyright">© <span data-anio-actual></span> Copiloto Dependencia</p>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/landing.js"></script>
+<script src="js/contador.js"></script>
+</body>
+</html>

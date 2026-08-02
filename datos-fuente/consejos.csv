@@ -1,0 +1,7 @@
+ccaa_id,tipo,titulo,texto,documento_id,fuente_url,estado
+andalucia,error_tipico,El informe de salud caduca antes de presentar,"Solo vale si tiene menos de 3 meses. El error más común es pedirlo al principio y presentarlo cuando ya ha caducado, mientras se reúne el resto de papeles.",informe-salud,,falta
+andalucia,novedad,Procedimiento unificado,"Andalucía ha unificado el proceso: 1 solicitud – 1 visita – 1 resolución. Antes había dos visitas domiciliarias (valoración y PIA) y dos resoluciones separadas; ahora una sola resolución reconoce grado y prestaciones a la vez.",,,falta
+madrid,error_tipico,Informe de salud genérico,"Un informe que solo lista diagnósticos, sin decir que la situación es estable ni qué ayuda concreta se necesita, suele generar un requerimiento y retrasa el expediente.",informe-salud,,falta
+madrid,consulta,Consulta de estado por teléfono,"Con el número de expediente, se puede consultar el estado llamando al 012 o por vía telemática.",,,falta
+murcia,dato_alto_valor,El modelo simplificado que casi nadie conoce,"En Murcia existe un modelo de informe médico específico y simplificado (protocolo OMI ""IMAS SOLICITUD DEPENDENCIA NOV2024""), creado para agilizar el trámite. Muchas familias no saben que existe y piden un informe genérico.",informe-salud,,falta
+murcia,aviso,Enfermedades raras,Deben constar explícitamente en el diagnóstico del informe de salud.,informe-salud,,falta

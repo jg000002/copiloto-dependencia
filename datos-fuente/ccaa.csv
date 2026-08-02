@@ -1,0 +1,4 @@
+ccaa_id,nombre,organismo_nombre,organismo_siglas,organismo_url,plazo_legal_dias,plazo_legal_norma,plazo_legal_url,plazo_subsanacion_dias,plazo_subsanacion_norma,plazo_subsanacion_url,plazo_medio_dias,plazo_medio_fuente,plazo_medio_fecha,plazo_medio_url,via_telematica_disponible,via_telematica_nombre,via_telematica_url,via_telematica_requiere,donde_presentar_presencial,consulta_estado_necesitas,consulta_estado_como,consulta_estado_telefono,consulta_estado_url,estado,verificado_por,fecha_verificacion
+andalucia,Andalucía,Agencia de Servicios Sociales y Dependencia de Andalucía,,,,,,,,,,,,,si,Ventanilla Electrónica de la Dependencia (VED),,certificado digital / Cl@ve,,,,,,falta,Andrea,
+madrid,Comunidad de Madrid,,,,,,,,,,,,,,,,,,,Número de expediente,Vía telemática o llamando al 012,012,,falta,Andrea,
+murcia,Región de Murcia,Instituto Murciano de Acción Social,IMAS,,,,,,,,559,,,,,,,,,,,,,falta,Andrea,

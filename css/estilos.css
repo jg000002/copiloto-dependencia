@@ -1,0 +1,164 @@
+/* estilos.css — Copiloto Dependencia, Fase 0.
+   Sin dependencias, sin build. Un solo archivo hasta que estorbe.
+
+   Criterio de diseño: mucha gente que entra aquí tiene 60 o 70 años y llega
+   preocupada. Por eso el texto base es grande, el contraste es alto y no hay
+   animaciones ni colores de urgencia comercial. */
+
+:root {
+  --tinta: #1b2733;          /* texto principal */
+  --tinta-suave: #5a6673;    /* texto secundario */
+  --papel: #ffffff;
+  --papel-suave: #f4f6f8;    /* fondos de sección */
+  --acento: #1f5f8b;         /* azul sobrio: enlaces y botones */
+  --acento-oscuro: #17475f;
+  --borde: #d9dee3;
+  --alerta-fondo: #fdf4e7;   /* fuera de plazo: ámbar, no rojo */
+  --alerta-borde: #d99a3a;
+  --ok-fondo: #eef4f8;
+  --ok-borde: #7ba7c4;
+
+  --ancho-texto: 42rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+
+h1, h2, h3 { line-height: 1.25; }
+h1 { font-size: 2rem; margin: 0 0 1rem; }
+h2 { font-size: 1.5rem; margin: 0 0 1.25rem; }
+h3 { font-size: 1.125rem; margin: 0 0 .5rem; }
+
+p { margin: 0 0 1rem; }
+strong { font-weight: 600; }
+
+a { color: var(--acento); }
+
+.contenedor { width: 100%; margin: 0 auto; padding: 0 1.25rem; }
+.contenedor-estrecho { max-width: var(--ancho-texto); }
+
+/* ── Cabecera ─────────────────────────────────────────────── */
+.cabecera {
+  border-bottom: 1px solid var(--borde);
+  padding: 1rem 0;
+}
+.marca { font-weight: 600; letter-spacing: -0.01em; color: inherit; text-decoration: none; }
+
+/* ── Hero ─────────────────────────────────────────────────── */
+.hero { padding: 3rem 0 2.5rem; }
+.subtitulo { font-size: 1.1875rem; color: var(--tinta-suave); }
+.subtitulo strong { color: var(--tinta); }
+
+.fuente-dato {
+  font-size: .875rem;
+  color: var(--tinta-suave);
+  margin-bottom: 1.75rem;
+}
+
+.boton {
+  display: inline-block;
+  background: var(--acento);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: .875rem 1.5rem;
+  border-radius: 6px;
+}
+.boton:hover, .boton:focus { background: var(--acento-oscuro); }
+
+.linea-confianza {
+  font-size: .9375rem;
+  color: var(--tinta-suave);
+  margin-top: .875rem;
+}
+
+/* ── Secciones ────────────────────────────────────────────── */
+.seccion { padding: 2.5rem 0; }
+.seccion-destacada {
+  background: var(--papel-suave);
+  border-top: 1px solid var(--borde);
+  border-bottom: 1px solid var(--borde);
+}
+
+.problema { margin-bottom: 1.75rem; }
+.problema h3 { color: var(--tinta); }
+.problema p { color: var(--tinta-suave); margin-bottom: 0; }
+
+/* ── Contador ─────────────────────────────────────────────── */
+.herramienta {
+  background: var(--papel);
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.etiqueta { display: block; font-weight: 600; margin-bottom: .5rem; }
+
+.campo-fecha {
+  font: inherit;
+  padding: .625rem .75rem;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  background: #fff;
+  color: inherit;
+  width: 100%;
+  max-width: 16rem;
+}
+.campo-fecha:focus { outline: 2px solid var(--acento); outline-offset: 1px; }
+
+.nota-privacidad {
+  font-size: .875rem;
+  color: var(--tinta-suave);
+  margin: .75rem 0 0;
+}
+
+.resultado:not(:empty) {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  border-radius: 6px;
+  border-left: 4px solid var(--ok-borde);
+  background: var(--ok-fondo);
+}
+.resultado.fuera-de-plazo {
+  border-left-color: var(--alerta-borde);
+  background: var(--alerta-fondo);
+}
+.resultado.dato-invalido {
+  border-left-color: var(--borde);
+  background: var(--papel-suave);
+}
+.resultado p { margin-bottom: .625rem; }
+.resultado p:last-child { margin-bottom: 0; }
+.resultado .cifra { font-size: 1.25rem; }
+
+.nota-reforma,
+.aviso-noscript {
+  font-size: .9375rem;
+  color: var(--tinta-suave);
+  margin-top: 1.25rem;
+}
+
+/* ── Pie ──────────────────────────────────────────────────── */
+.pie {
+  border-top: 1px solid var(--borde);
+  padding: 2rem 0;
+  font-size: .9375rem;
+  color: var(--tinta-suave);
+}
+.descargo { max-width: var(--ancho-texto); }
+.copyright { margin-bottom: 0; }
+
+/* ── Pantallas grandes ────────────────────────────────────── */
+@media (min-width: 48rem) {
+  h1 { font-size: 2.5rem; }
+  .hero { padding: 4rem 0 3rem; }
+  .seccion { padding: 3.5rem 0; }
+}

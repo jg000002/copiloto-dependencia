@@ -1,0 +1,26 @@
+ccaa_id,doc_id,nombre,obligatorio,condicion_texto,detalle,modelo_nombre,modelo_url,donde_se_pide,quien_lo_firma,caducidad_meses,aviso,fuente_url,estado,notas_andrea
+andalucia,solicitud,Solicitud de reconocimiento de la situación de dependencia,si,,En el modelo normalizado de la Junta de Andalucía.,Modelo normalizado,,,,,,,falta,
+andalucia,informe-salud,Informe sobre condiciones de salud,si,,"En modelo normalizado, firmado por personal sanitario del Sistema Sanitario Público de Andalucía (SSPA) o del sistema de protección sanitaria que corresponda.",Modelo normalizado SSPA,,Centro de salud / sistema sanitario público,Personal sanitario del SSPA,3,"Tiene una antigüedad máxima de 3 meses desde la fecha de solicitud. Pídelo el último, no el primero: si caduca mientras reúnes el resto de papeles, te lo devuelven.",,falta,
+andalucia,representacion,Acreditación de la representación,no,Solo si se presenta la solicitud en nombre de otra persona.,,,,,,,,,falta,
+andalucia,identidad,DNI o NIE de la persona solicitante,si,,,,,,,,,,falta,
+andalucia,empadronamiento,Certificado de empadronamiento,si,,,,,Ayuntamiento,,,,,falta,¿Basta el corriente o piden histórico con años de residencia?
+andalucia,rentas,Última declaración de la renta o documento acreditativo de rentas,si,,Para acreditar la capacidad económica.,,,,,,,,falta,
+madrid,solicitud,Solicitud de reconocimiento de la situación de dependencia,si,,Modelo oficial de la Comunidad de Madrid.,Modelo oficial CM,,,,,,,falta,
+madrid,informe-salud,Informe de salud actualizado,si,,Hay dos modelos distintos según la edad: uno para 0-3 años y otro para mayores de 3 años.,Modelo según edad (0-3 años / mayores de 3 años),,Servicio de salud,Servicio de salud,3,"Debe decir tres cosas concretas: los diagnósticos, que la situación de salud es estable, y qué ayuda concreta necesita para las actividades básicas de la vida diaria. Un informe genérico que solo liste diagnósticos suele generar un requerimiento.",,falta,Confirmar que la caducidad es de 3 meses también en Madrid
+madrid,informe-social,Informe social,si,,Lo aportan los servicios sociales municipales.,,,Servicios sociales municipales,Servicios sociales municipales,,,,falta,
+madrid,identidad,DNI/NIE del solicitante y del representante,si,,,,,,,,,,falta,
+madrid,empadronamiento,Certificado de empadronamiento,si,,"Acreditando 5 años de residencia en España, de los cuales los 2 últimos inmediatamente anteriores a la solicitud.",,,Ayuntamiento,,,,,falta,
+madrid,autorizacion-consulta-datos,Documento de autorización de consulta de datos,si,,,,,,,,,,falta,
+madrid,rentas-pensiones,Declaración de la Renta y certificado de pensiones del último ejercicio,si,,O autorización para que la Administración los consulte directamente.,,,,,,,,falta,
+madrid,certificado-bancario,Certificado bancario,si,,Con el solicitante como titular de la cuenta.,,,,,,,,falta,
+madrid,patrimonio,Declaración del Impuesto sobre el Patrimonio,no,Solo si está obligado a presentarla.,,,,,,,,,falta,
+madrid,anexo-ii,Anexo II,no,Solo para enfermedades y procesos de alta complejidad y curso irreversible. Existe trámite específico para ELA y para Grado III+.,,Anexo II,,,,,,,falta,
+madrid,extranjeros-no-comunitarios,Certificado del Ministerio del Interior,no,Solo para extranjeros no comunitarios: acredita 5 años de residencia legal.,,,,,,,,,falta,
+murcia,solicitud,Solicitud inicial de grado de dependencia,si,,En modelo normalizado.,Modelo normalizado,,,,,,,falta,
+murcia,informe-salud,Informe sobre condiciones de salud,si,,"En el modelo normalizado incluido en OMI-AP, el software de atención primaria.",Modelo normalizado OMI-AP,,Centro de salud,Profesional del sistema público de salud,,"Existe un modelo específico y simplificado, el protocolo OMI ""IMAS SOLICITUD DEPENDENCIA NOV2024"", pensado para agilizar el trámite. Casi nadie lo pide porque no se conoce: pide este en el centro de salud en vez del genérico.",,falta,PRIORITARIO: ¿tiene caducidad este informe en Murcia? Ahora está vacío y no sabemos si es que no caduca o que no se miró
+murcia,informe-salud-mutualistas,Informe de salud para mutualistas,no,"Solo para mutualistas del Estado (MUFACE, ISFAS, MUGEJU): modelo de informe distinto, adjunto al trámite.",,,,,,,,,falta,
+murcia,identidad,DNI o NIE de la persona solicitante,si,,,,,,,,,,falta,
+murcia,datos-economicos,Documentación de pensiones e IRPF,no,"Solo si no se autoriza la consulta a la AEAT: documento de pensiones reconocidas del año actual, más copia íntegra de la declaración de IRPF y patrimonio del último ejercicio disponible.",,,,,,,,,falta,
+murcia,extranjeros-comunitarios,Certificado del Registro Central de Extranjeros,no,Solo para extranjeros comunitarios: certificado del Registro Central de Extranjeros + pasaporte.,,,,,,,,,falta,
+murcia,extranjeros-no-comunitarios,Certificado de residencia legal,no,Solo para extranjeros no comunitarios: certificado de periodos de residencia legal.,,,,,,,,,falta,
+murcia,empadronamiento,PENDIENTE DE CONFIRMAR SI EXISTE,,,,,,,,,,,falta,"PRIORITARIO: Andalucía y Madrid piden empadronamiento y Murcia no lo tiene en la lista. ¿Murcia no lo exige, o se nos escapó? Si no lo exige, borrar esta fila; si lo exige, rellenarla"
