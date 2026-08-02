@@ -18,6 +18,11 @@
   --ok-fondo: #eef4f8;
   --ok-borde: #7ba7c4;
 
+  --calido: #c1592f;         /* acento cálido: iconos, insignias, detalles */
+  --calido-suave: #f7e6dc;   /* fondo de las insignias de icono */
+  --azul-suave: #e8f1f6;     /* forma decorativa de la cabecera */
+  --crema: #faf6f1;          /* fondo cálido de sección, alterna con papel-suave */
+
   --ancho-texto: 42rem;
 }
 
@@ -53,7 +58,37 @@ a { color: var(--acento); }
 .marca { font-weight: 600; letter-spacing: -0.01em; color: inherit; text-decoration: none; }
 
 /* ── Hero ─────────────────────────────────────────────────── */
-.hero { padding: 3rem 0 2.5rem; }
+.hero {
+  position: relative;
+  overflow: hidden; /* recorta las formas decorativas de abajo */
+  padding: 3rem 0 2.5rem;
+}
+/* Dos círculos suaves detrás del texto, solo para dar algo de vida a la
+   cabecera. Puramente decorativos: van por debajo del texto (z-index) y
+   no afectan al contraste ni a la lectura. */
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+}
+.hero::before {
+  width: 22rem;
+  height: 22rem;
+  background: var(--azul-suave);
+  top: -11rem;
+  right: -7rem;
+}
+.hero::after {
+  width: 15rem;
+  height: 15rem;
+  background: var(--calido-suave);
+  bottom: -8rem;
+  left: -6rem;
+}
+.hero .contenedor { position: relative; z-index: 1; }
+
 .subtitulo { font-size: 1.1875rem; color: var(--tinta-suave); }
 .subtitulo strong { color: var(--tinta); }
 
@@ -71,8 +106,16 @@ a { color: var(--acento); }
   font-weight: 600;
   padding: .875rem 1.5rem;
   border-radius: 6px;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
 }
-.boton:hover, .boton:focus { background: var(--acento-oscuro); }
+.boton:hover, .boton:focus {
+  background: var(--acento-oscuro);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(31, 95, 139, .22);
+}
+@media (prefers-reduced-motion: reduce) {
+  .boton { transition: none; }
+}
 
 .linea-confianza {
   font-size: .9375rem;
@@ -87,8 +130,52 @@ a { color: var(--acento); }
   border-top: 1px solid var(--borde);
   border-bottom: 1px solid var(--borde);
 }
+.seccion-calida { background: var(--crema); }
 
-.problema { margin-bottom: 1.75rem; }
+/* Marca de color delante de cada título de sección. El ::before está
+   vacío (solo color), así que un lector de pantalla no lo anuncia. */
+.seccion h2 {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: .625rem;
+}
+.seccion h2::before {
+  content: "";
+  flex: none;
+  width: .5rem;
+  height: 1.375rem;
+  margin-top: .1875rem;
+  border-radius: 3px;
+  background: var(--calido);
+}
+
+.problemas {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.problema {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: var(--papel);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  padding: 1.25rem;
+  box-shadow: 0 1px 2px rgba(27, 39, 51, .05);
+}
+.problema-icono {
+  flex: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--calido-suave);
+  color: var(--calido);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.problema-icono svg { width: 1.375rem; height: 1.375rem; }
 .problema h3 { color: var(--tinta); }
 .problema p { color: var(--tinta-suave); margin-bottom: 0; }
 
@@ -145,6 +232,23 @@ a { color: var(--acento); }
   color: var(--tinta-suave);
   margin-top: 1.25rem;
 }
+
+/* ── Quiénes somos ────────────────────────────────────────── */
+.autores { display: flex; margin-bottom: 1.25rem; }
+.avatar {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 2px solid var(--papel);
+  color: #fff;
+  font-weight: 600;
+  font-size: .9375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--acento);
+}
+.avatar + .avatar { margin-left: -.75rem; background: var(--calido); }
 
 /* ── Pie ──────────────────────────────────────────────────── */
 .pie {

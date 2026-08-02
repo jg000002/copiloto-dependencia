@@ -37,36 +37,61 @@
   </section>
 
   <!-- ───────────── Sección 2 — Los tres problemas ───────────── -->
-  <section class="seccion">
+  <section class="seccion seccion-calida">
     <div class="contenedor contenedor-estrecho">
       <h2>Si estás tramitando la dependencia de un familiar, seguramente te suena algo de esto</h2>
 
       <div class="problemas">
         <article class="problema">
-          <h3>«No sé si me falta algún papel»</h3>
-          <p>
-            Un porcentaje importante de solicitudes se paralizan o se archivan por
-            documentación incompleta: el informe de salud no está en el modelo oficial,
-            falta el certificado de empadronamiento histórico, o no se acreditó la
-            representación. Cuando pasa, hay que volver a empezar.
-          </p>
+          <span class="problema-icono" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 3h8l4 4v14H7z"/>
+              <path d="M15 3v4h4"/>
+              <path d="M9 13l2 2 4-4"/>
+            </svg>
+          </span>
+          <div class="problema-texto">
+            <h3>«No sé si me falta algún papel»</h3>
+            <p>
+              Un porcentaje importante de solicitudes se paralizan o se archivan por
+              documentación incompleta: el informe de salud no está en el modelo oficial,
+              falta el certificado de empadronamiento histórico, o no se acreditó la
+              representación. Cuando pasa, hay que volver a empezar.
+            </p>
+          </div>
         </article>
 
         <article class="problema">
-          <h3>«No sé cómo va mi expediente»</h3>
-          <p>
-            Cada comunidad autónoma tiene su propio sistema. Muchos exigen certificado
-            digital. En varios, la única vía real es llamar por teléfono y esperar.
-          </p>
+          <span class="problema-icono" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="10" cy="10" r="6"/>
+              <path d="M15 15l5 5"/>
+            </svg>
+          </span>
+          <div class="problema-texto">
+            <h3>«No sé cómo va mi expediente»</h3>
+            <p>
+              Cada comunidad autónoma tiene su propio sistema. Muchos exigen certificado
+              digital. En varios, la única vía real es llamar por teléfono y esperar.
+            </p>
+          </div>
         </article>
 
         <article class="problema">
-          <h3>«Llevamos más de un año esperando»</h3>
-          <p>
-            Si han pasado más de 6 meses desde tu solicitud, la Administración está
-            incumpliendo el plazo legal. Eso no hace que pierdas el derecho: el
-            expediente sigue su curso, y puedes reclamar por escrito.
-          </p>
+          <span class="problema-icono" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 7v5l3.5 2"/>
+            </svg>
+          </span>
+          <div class="problema-texto">
+            <h3>«Llevamos más de un año esperando»</h3>
+            <p>
+              Si han pasado más de 6 meses desde tu solicitud, la Administración está
+              incumpliendo el plazo legal. Eso no hace que pierdas el derecho: el
+              expediente sigue su curso, y puedes reclamar por escrito.
+            </p>
+          </div>
         </article>
       </div>
     </div>
@@ -114,13 +139,16 @@
   <section class="seccion">
     <div class="contenedor contenedor-estrecho">
       <h2>Quiénes somos</h2>
+      <!-- TODO (Joan): cambiar estos círculos con iniciales por fotos reales
+           cuando haya diseño. Una cara real ayuda más que unas iniciales. -->
+      <div class="autores" aria-hidden="true">
+        <span class="avatar">JG</span>
+        <span class="avatar">AG</span>
+      </div>
       <p>
         Somos Joan Guasch y Andrea Gutiérrez. Empezamos esto porque vimos de cerca lo que
         es pelearse con este trámite.
       </p>
-      <!-- TODO (Joan): añadir una foto de cada uno cuando haya diseño.
-           En este sector el anonimato baja mucho la conversión; el texto ya
-           no es anónimo, pero una cara real ayuda más que un nombre. -->
       <p>
         No somos abogados ni trabajadores sociales, y no damos asesoramiento jurídico.
         Lo que hacemos es reunir en un sitio información que hoy está repartida entre 17
