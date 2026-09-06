@@ -30,17 +30,24 @@
 // `sin_verificar`. Así solo hay que escribir las excepciones, y el estado
 // por defecto es el prudente.
 //
-// Ejemplo de cómo se marcará cuando Andrea confirme algo:
+// Ejemplo real, ya aplicado a Andalucía:
 //
 //     verificacion: {
+//       plazo_legal: "verificado",     // tiene dias + norma_referencia + norma_url
 //       plazo_medio: "verificado",     // tiene dias + fuente + fecha + url
-//       plazo_legal: "no_aplica",      // comprobado: usa el estatal, no fija uno propio
 //     }
 //
-// HOY NO HAY NI UN SOLO CAMPO VERIFICADO. Las tres fichas vienen de la
-// investigación de Andrea pero ninguna tiene URL que la respalde, así que
-// los tres objetos `verificacion` están vacíos a propósito. Por eso la web
-// todavía no pinta nada de este archivo.
+// ESTADO ACTUAL (desde la sincronización con el Sheet de agosto de 2026):
+// `plazo_legal`, `plazo_subsanacion` y `plazo_medio` están verificados para
+// Andalucía y Murcia; para Madrid solo `plazo_legal` y `plazo_medio` (su
+// `plazo_subsanacion` sigue sin confirmar). Esto es lo que permite que el
+// selector de comunidad del contador de plazo use el dato autonómico en vez
+// del estatal — ver fichas.js y contador.js.
+//
+// Los `documentos`, `consejos` y el `meta.estado` de cada ficha (la
+// checklist completa) siguen SIN VERIFICAR: ninguno tiene URL que lo
+// respalde todavía. Por eso la web sigue sin pintar la checklist, aunque ya
+// use el plazo legal de cada comunidad en el contador.
 //
 // La columna `estado` de los CSV usa otro vocabulario (`falta` / `ok`). La
 // equivalencia es: falta → sin_verificar, ok → verificado.
@@ -82,39 +89,42 @@ const DATOS_CCAA = {
 
     organismo: {
       nombre: "Agencia de Servicios Sociales y Dependencia de Andalucía",
-      siglas: "",
-      url: "",
+      siglas: "ASSDA",
+      url: "https://www.juntadeandalucia.es/agenciadeserviciossocialesydependencia/",
     },
 
     // Plazo propio de esta comunidad para resolver. Vacío = se usa
     // CONFIG.PLAZO_LEGAL_DIAS (el estatal). Ver fichas.js.
+    //
+    // Andalucía SÍ fija uno propio, y no tiene relación con la reforma
+    // estatal pendiente (CONFIG.REFORMA_PENDIENTE): este decreto autonómico
+    // es de 2021.
     plazo_legal: {
-      dias: null,
-      norma_referencia: "",
-      norma_url: "",
+      dias: 90,
+      norma_referencia: "Decreto 168/2007, de 12 de junio, art. 15.2 (redacción dada por Decreto-ley 9/2021, de 18 de mayo)",
+      norma_url: "https://www.boe.es/buscar/act.php?id=BOJA-b-2021-90194",
     },
 
     // Días para aportar lo que falta cuando la Administración requiere
     // documentación. Si se pasa, el expediente se archiva.
     plazo_subsanacion: {
-      dias: null,
-      norma_referencia: "",
-      norma_url: "",
+      dias: 10,
+      norma_referencia: "mismo decreto, art. 11.1, que remite al art. 68.1 de la Ley 39/2015 (días hábiles)",
+      norma_url: "https://www.boe.es/buscar/act.php?id=BOJA-b-2021-90194",
     },
 
-    // Un solo número, nunca un rango. Andrea lo vació al detectar que las
-    // dos cifras que teníamos (477 y 496) venían de fuentes distintas.
+    // Un solo número, nunca un rango. Cifra oficial del IMSERSO.
     plazo_medio: {
-      dias: null,
-      fuente: "",
-      fecha: "",
-      url: "",
+      dias: 435,
+      fuente: "IMSERSO, Sistema de Información del SAAD, situación a 30 de junio de 2026 (tiempo medio Solicitud → Resolución de Prestación, primera resolución de cada persona)",
+      fecha: "2026-06-30",
+      url: "https://imserso.es/documents/20123/11151734/estsisaad_20260630.xlsx/961e14cf-d41a-f0bd-dbc9-1737a325c37e",
     },
 
     via_telematica: {
       disponible: true,
       nombre: "Ventanilla Electrónica de la Dependencia (VED)",
-      url: "",
+      url: "https://www.juntadeandalucia.es/agenciadeserviciossocialesydependencia/ved/",
       requiere: "certificado digital / Cl@ve",
     },
 
@@ -127,7 +137,11 @@ const DATOS_CCAA = {
       url: "",
     },
 
-    verificacion: {},
+    verificacion: {
+      plazo_legal: "verificado",
+      plazo_subsanacion: "verificado",
+      plazo_medio: "verificado",
+    },
 
     documentos: [
       {
@@ -241,10 +255,10 @@ const DATOS_CCAA = {
       },
     ],
 
-    preguntas_abiertas: [
-      { id: "P1", pregunta: "¿El plazo legal para resolver es de 180 días en Andalucía, o su normativa fija uno propio?", afecta_a: "plazo_legal" },
-      { id: "P2", pregunta: "¿Cuántos días hay para subsanar cuando requieren documentación?", afecta_a: "plazo_subsanacion" },
-    ],
+    // P1 y P2 (plazo legal y plazo de subsanación) ya se resolvieron: 90 y
+    // 10 días respectivamente, ver plazo_legal y plazo_subsanacion arriba.
+    // Lo que queda abierto es la checklist entera (documentos y consejos).
+    preguntas_abiertas: [],
   },
 
   // ─────────────────────────────── MADRID ───────────────────────────────
@@ -269,30 +283,30 @@ const DATOS_CCAA = {
     },
 
     plazo_legal: {
-      dias: null,
-      norma_referencia: "",
-      norma_url: "",
+      dias: 180,
+      norma_referencia: "Decreto 54/2015, de 21 de mayo, art. 28.1",
+      norma_url: "https://noticias.juridicas.com/base_datos/CCAA/553564-d-54-2015-de-21-may-ca-madrid-procedimiento-para-reconocer-la-situacion-de.html",
     },
 
+    // Sin confirmar todavía. NO se marca en `verificacion` (queda
+    // sin_verificar por defecto, que es lo correcto mientras no lo esté).
     plazo_subsanacion: {
       dias: null,
       norma_referencia: "",
       norma_url: "",
     },
 
-    // Sabemos que empeoró +42 días en 2025 y que está por encima de la
-    // media, pero no tenemos el número. Vacío hasta que lo haya.
     plazo_medio: {
-      dias: null,
-      fuente: "",
-      fecha: "",
-      url: "",
+      dias: 342,
+      fuente: "IMSERSO, Sistema de Información del SAAD, situación a 30 de junio de 2026 (tiempo medio Solicitud → Resolución de Prestación, primera resolución de cada persona)",
+      fecha: "2026-06-30",
+      url: "https://imserso.es/documents/20123/11151734/estsisaad_20260630.xlsx/961e14cf-d41a-f0bd-dbc9-1737a325c37e",
     },
 
     via_telematica: {
       disponible: null,
       nombre: "",
-      url: "",
+      url: "http://sede.comunidad.madrid/node/280192",
       requiere: "",
     },
 
@@ -305,7 +319,12 @@ const DATOS_CCAA = {
       url: "",
     },
 
-    verificacion: {},
+    // plazo_subsanacion NO entra aquí a propósito: sigue sin_verificar por
+    // ausencia de la clave, tal como hace Fichas.estadoCampo() por defecto.
+    verificacion: {
+      plazo_legal: "verificado",
+      plazo_medio: "verificado",
+    },
 
     documentos: [
       {
@@ -494,8 +513,8 @@ const DATOS_CCAA = {
       },
     ],
 
+    // P1 (plazo legal) ya se resolvió: 180 días, ver plazo_legal arriba.
     preguntas_abiertas: [
-      { id: "P1", pregunta: "¿El plazo legal para resolver es de 180 días en Madrid, o su normativa fija uno propio?", afecta_a: "plazo_legal" },
       { id: "P2", pregunta: "¿Cuántos días hay para subsanar cuando requieren documentación?", afecta_a: "plazo_subsanacion" },
     ],
   },
@@ -516,34 +535,34 @@ const DATOS_CCAA = {
     organismo: {
       nombre: "Instituto Murciano de Acción Social",
       siglas: "IMAS",
-      url: "",
+      url: "https://www.carm.es/imas",
     },
 
     plazo_legal: {
-      dias: null,
-      norma_referencia: "",
-      norma_url: "",
+      dias: 180,
+      norma_referencia: "Decreto 74/2011, de 20 de mayo, art. 12.2",
+      norma_url: "https://regiondemurciasocial.carm.es/-/decreto-74-2011-de-reconocimiento-de-la-situacion-de-dependencia",
     },
 
     plazo_subsanacion: {
-      dias: null,
-      norma_referencia: "",
-      norma_url: "",
+      dias: 10,
+      norma_referencia: "art. 9 del mismo decreto (el texto dice \"diez días\" sin especificar si son hábiles; remite al art. 71 de la Ley 30/1992, derogada — la Ley 39/2015 vigente, art. 68, sí dice \"hábiles\" expresamente)",
+      norma_url: "https://regiondemurciasocial.carm.es/-/decreto-74-2011-de-reconocimiento-de-la-situacion-de-dependencia",
     },
 
-    // 559 días viene de la investigación de Andrea, pero sin fuente, fecha
-    // ni URL: sigue estando sin_verificar y no se puede publicar todavía.
+    // Cifra oficial del IMSERSO: 551 días (sustituye a los 559 de la
+    // investigación inicial de Andrea, que no tenía fuente citable).
     plazo_medio: {
-      dias: 559,
-      fuente: "",
-      fecha: "",
-      url: "",
+      dias: 551,
+      fuente: "IMSERSO, Sistema de Información del SAAD, situación a 30 de junio de 2026 (tiempo medio Solicitud → Resolución de Prestación, primera resolución de cada persona)",
+      fecha: "2026-06-30",
+      url: "https://imserso.es/documents/20123/11151734/estsisaad_20260630.xlsx/961e14cf-d41a-f0bd-dbc9-1737a325c37e",
     },
 
     via_telematica: {
       disponible: null,
       nombre: "",
-      url: "",
+      url: "https://sede.carm.es/web/pagina?IDCONTENIDO=7402&IDTIPO=240&RASTRO=c%24m40288",
       requiere: "",
     },
 
@@ -553,10 +572,14 @@ const DATOS_CCAA = {
       necesitas: "",
       como: "",
       telefono: "",
-      url: "",
+      url: "https://sede.carm.es/web/pagina?IDCONTENIDO=7402&IDTIPO=240&RASTRO=c%24m40288",
     },
 
-    verificacion: {},
+    verificacion: {
+      plazo_legal: "verificado",
+      plazo_subsanacion: "verificado",
+      plazo_medio: "verificado",
+    },
 
     documentos: [
       {
@@ -693,9 +716,9 @@ const DATOS_CCAA = {
       },
     ],
 
+    // P1 y P2 (plazo legal y plazo de subsanación) ya se resolvieron: 180 y
+    // 10 días respectivamente, ver plazo_legal y plazo_subsanacion arriba.
     preguntas_abiertas: [
-      { id: "P1", pregunta: "¿El plazo legal para resolver es de 180 días en Murcia, o su normativa fija uno propio?", afecta_a: "plazo_legal" },
-      { id: "P2", pregunta: "¿Cuántos días hay para subsanar cuando requieren documentación?", afecta_a: "plazo_subsanacion" },
       { id: "P3", pregunta: "¿Murcia exige certificado de empadronamiento? Andalucía y Madrid sí; aquí no aparece en la lista. O no lo pide, o se nos escapó.", afecta_a: "documentos.empadronamiento" },
       { id: "P4", pregunta: "¿El informe de salud caduca en Murcia? En Andalucía y Madrid son 3 meses; aquí está vacío y no sabemos si es que no caduca o que no se miró.", afecta_a: "documentos.informe-salud.caducidad_meses" },
     ],

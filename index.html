@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Copiloto Dependencia — Calcula cuánto lleva esperando tu solicitud</title>
-<meta name="description" content="El plazo legal para resolver una solicitud de dependencia es de 6 meses. Calcula gratis cuánto lleva esperando tu familiar y qué puedes hacer. Sin registro y sin guardar datos.">
+<meta name="description" content="El plazo legal para resolver una solicitud de dependencia es de 6 meses en la mayoría de comunidades. Calcula gratis cuánto lleva esperando tu familiar y qué puedes hacer. Sin registro y sin guardar datos.">
 <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
@@ -22,7 +22,7 @@
     <div class="contenedor contenedor-estrecho">
       <h1>Tu solicitud de dependencia lleva más tiempo del legal. Y probablemente nadie te lo ha dicho.</h1>
       <p class="subtitulo">
-        El plazo máximo para resolver es de 6 meses. La media real en España es de
+        El plazo máximo para resolver es de 6 meses en la mayoría de comunidades. La media real en España es de
         <strong><span data-cifra="plazo_medio_dias"></span> días</strong>.
         Calcula gratis cuánto lleva esperando tu familiar y qué puedes hacer al respecto.
       </p>
@@ -103,14 +103,28 @@
       <h2>¿Cuánto lleva esperando tu expediente?</h2>
 
       <div class="herramienta">
-        <label class="etiqueta" for="fecha-solicitud">
-          Fecha en que se presentó la solicitud
-        </label>
-        <input type="date" id="fecha-solicitud" name="fecha-solicitud" class="campo-fecha">
+        <div class="campo-grupo">
+          <!-- Las opciones NO están aquí: las construye js/contador.js a
+               partir de js/datos-ccaa.js, incluyendo solo las comunidades
+               con el plazo legal ya verificado. -->
+          <label class="etiqueta" for="comunidad-solicitud">
+            Comunidad autónoma
+          </label>
+          <select id="comunidad-solicitud" name="comunidad-solicitud" class="campo-select"></select>
+          <p class="nota-campo">El plazo varía según la comunidad autónoma.</p>
+        </div>
+
+        <div class="campo-grupo">
+          <label class="etiqueta" for="fecha-solicitud">
+            Fecha en que se presentó la solicitud
+          </label>
+          <input type="date" id="fecha-solicitud" name="fecha-solicitud" class="campo-fecha">
+        </div>
 
         <p class="nota-privacidad">
-          El cálculo se hace en tu propio navegador. Esta fecha no se envía a ningún
-          sitio, no se guarda y no aparece en la dirección de la página.
+          El cálculo se hace en tu propio navegador. Ni la fecha ni la comunidad que
+          elijas se envían a ningún sitio, no se guardan y no aparecen en la dirección
+          de la página.
         </p>
 
         <!-- El resultado se pinta aquí desde js/contador.js -->
@@ -175,6 +189,8 @@
 </footer>
 
 <script src="js/config.js"></script>
+<script src="js/datos-ccaa.js"></script>
+<script src="js/fichas.js"></script>
 <script src="js/landing.js"></script>
 <script src="js/contador.js"></script>
 </body>

@@ -36,8 +36,8 @@ const CONFIG = {
   // las fichas: si no hay URL, no se puede defender el dato ante nadie.
   CIFRAS_OFICIALES: {
     plazo_medio_dias: 314,
-    plazo_medio_fuente: "Panel del SAAD, 2.º trimestre 2026",
-    plazo_medio_url: "",
+    plazo_medio_fuente: "IMSERSO, Sistema de Información del SAAD, situación a 30 de junio de 2026 (fila 'Total Nacional', tiempo medio Solicitud → Resolución de Prestación)",
+    plazo_medio_url: "https://imserso.es/documents/20123/11151734/estsisaad_20260630.xlsx/961e14cf-d41a-f0bd-dbc9-1737a325c37e",
 
     fallecidos_esperando_anio: 2025,
     fallecidos_esperando_total: 32704,

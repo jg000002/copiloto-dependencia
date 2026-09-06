@@ -187,9 +187,13 @@ a { color: var(--acento); }
   padding: 1.5rem;
 }
 
+.campo-grupo { margin-bottom: 1.25rem; }
+.campo-grupo:last-child { margin-bottom: 0; }
+
 .etiqueta { display: block; font-weight: 600; margin-bottom: .5rem; }
 
-.campo-fecha {
+.campo-fecha,
+.campo-select {
   font: inherit;
   padding: .625rem .75rem;
   border: 1px solid var(--borde);
@@ -199,7 +203,14 @@ a { color: var(--acento); }
   width: 100%;
   max-width: 16rem;
 }
-.campo-fecha:focus { outline: 2px solid var(--acento); outline-offset: 1px; }
+.campo-fecha:focus,
+.campo-select:focus { outline: 2px solid var(--acento); outline-offset: 1px; }
+
+.nota-campo {
+  font-size: .875rem;
+  color: var(--tinta-suave);
+  margin: .5rem 0 0;
+}
 
 .nota-privacidad {
   font-size: .875rem;
