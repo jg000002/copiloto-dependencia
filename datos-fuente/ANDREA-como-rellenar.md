@@ -15,6 +15,7 @@ investigación. Cada uno se corresponde con una pestaña de tu Google Sheet:
 | `ccaa.csv` | `ccaa` | Una fila por comunidad: organismo, plazos, cómo se presenta, cómo se consulta el estado |
 | `documentos.csv` | `documentos` | Una fila por documento que exige cada comunidad (24 filas) |
 | `consejos.csv` | `consejos` | Avisos y errores típicos que contamos a la familia |
+| `IMSERSO_20260630.xlsx` | — | Excel oficial del IMSERSO (Sistema de Información del SAAD), situación a 30/06/2026. Es la fuente de los plazos medios (nacional y por comunidad) y del número de fallecidos esperando. Se guarda aquí como respaldo y trazabilidad, igual que los CSV: el código nunca lo lee. |
 
 **Para empezar:** en Google Sheets, `Archivo → Importar → Subir`, y elige
 *"Insertar nueva hoja"* para cada CSV. No sobrescribas tu Sheet actual: importa
