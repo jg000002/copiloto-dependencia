@@ -39,7 +39,7 @@
 
     var placeholder = document.createElement("option");
     placeholder.value = "";
-    placeholder.textContent = "— Elige tu comunidad (opcional) —";
+    placeholder.textContent = "— Elige tu comunidad —";
     selectorComunidad.appendChild(placeholder);
 
     var ids = Object.keys(DATOS_CCAA);
